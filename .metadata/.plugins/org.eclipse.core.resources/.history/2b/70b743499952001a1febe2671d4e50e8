@@ -1,0 +1,61 @@
+package linton_problem1;
+import java.security.SecureRandom;
+import java.util.Scanner;
+public class CAI1 {
+	public static void main(string[] args)
+	{
+		// create scanner to enter inputs &
+		// declare variables for this method
+		Scanner sc = new Scanner(System.in);
+		int correctAnswer;
+		int answer;
+		String decision;
+		do {
+			// call a method to generate the question
+			// and answer.
+			correctAnswer = ();
+		do {
+			// ask the student for an answer &
+			// record input.
+			System.out.print("\nyour answer: ");
+			answer = sc.nextInt();
+			// now write an if statement to
+			// tell if answer is correct or not.
+				if(answer == correctAnswer)
+				{
+					System.out.println("Very Good! ");	
+				}
+				else 
+				{ 
+					System.out.println("No. Please try again. ");	
+				}
+		}
+		/*// create condition for student to try 
+		// new question on incorrect attempt.
+		while (answer != correctAnswer);
+		System.out.println("Try another question? ");
+		*/
+			// create method to generate the question
+public static int quiz()
+		{
+	int num1, num2;
+
+	//initialize the random variable
+
+	Random rand = new Random();
+
+	//Generate random numbers less than 10
+
+	num1 = rand.nextInt(10);
+
+	num2 = rand.nextInt(10);
+
+	// System.out.print("How much is " + num1 + " times " + num2 + "?");
+
+	return num1 * num2;
+		}
+		
+	}
+	//
+	}
+}

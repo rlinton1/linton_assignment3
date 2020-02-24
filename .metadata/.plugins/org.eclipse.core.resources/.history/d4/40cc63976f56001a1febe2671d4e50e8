@@ -1,0 +1,157 @@
+package linton_problem1;
+
+import java.security.SecureRandom;
+import java.util.Scanner;
+
+public class CAI4 {
+			 // initialize the secure random variable
+			static SecureRandom rand = new SecureRandom();
+			 // Generate random numbers less than 4 for switch
+			private static int switching = 1 + rand.nextInt(4);
+			 // Generate random numbers less than 10
+			public static int num1 = rand.nextInt(10);
+			public static int num2 = rand.nextInt(10);
+			private static int studentResponse;
+			private static int correctAnswers;
+			private static int finalGrade;
+			static boolean problemSetRepeat;
+			private static  int difficultyResponse;
+			public static void main(String[] args)
+			{
+				quiz();
+			}		
+		// create method to generate the arithmetic logic.
+		public static void quiz()
+		{
+			readDifficulty();
+			generateQuestionArgument();
+			int i =0;
+			for(i = 0; i<=10; i++) 
+			{
+				num1 = rand.nextInt(10);
+				num2 = rand.nextInt(10);
+				askQuestion();
+				readResponse();	
+				while(true) 
+				{
+					switching = 1 + rand.nextInt(4);
+					if(studentResponse != (num1 * num2))
+					{
+						isAnswerCorrect();
+						break;
+					}
+					else if(studentResponse == (num1 * num2))
+					{
+						isAnswerCorrect();
+						break;
+					}
+						}
+					}
+			displayCompletionMessage();
+			}				
+		public static void readResponse()
+		{
+			// create scanner to enter inputs &
+			Scanner sc = new Scanner(System.in);
+			// ask the student for an answer &
+			// record input.
+			System.out.print("\nyour answer: ");
+				studentResponse = sc.nextInt();	
+				
+			}
+		 // call a method to generate the question
+		public static void askQuestion()
+		{
+			 System.out.println("How much is " + num1 + " times " + num2 + "?");
+			}
+		public static void isAnswerCorrect()
+		{
+			if(studentResponse == num1 * num2) {
+						++correctAnswers;
+				displayCorrectResponse();
+			}else {
+				displayIncorrectResponse();
+			}
+		}
+		public static void displayCorrectResponse()
+		{
+			switch(switching) {
+			case 1:
+				System.out.println("Very Good!");
+				break;
+			case 2:
+				System.out.println("Excellent!");
+				break;
+			case 3:
+				System.out.println("Nice work!");
+				break;
+			case 4:
+				System.out.println("Keep up the good work!");
+				break;
+			} 
+		     }
+		public static void displayIncorrectResponse()
+		{
+			switch(switching) {
+			case 1:
+				System.out.println("No. Please try again.");
+				break;
+			case 2:
+				System.out.println("Wrong. Try once more");
+				break;
+			case 3:
+				System.out.println("Don't give up!");
+				break;
+			case 4:
+				System.out.println("No. Keep trying.");
+				break;
+			}
+			
+			}
+		private static void displayCompletionMessage() 
+		{
+			finalGrade = (correctAnswers * 100) / 10;
+			if(finalGrade >= 75) {
+				System.out.printf("Congratulations, you are ready to go to the next level!\n You scored %d%%", finalGrade);
+			}else {
+				System.out.printf("Please ask your teacher for extra help.\nYou scored %d%% ", finalGrade);
+			}
+		}
+		private static void readDifficulty() {
+			System.out.println("Please select a difficulty level between 1 and 4?");
+			Scanner input = new Scanner(System.in);
+			difficultyResponse = input.nextInt();
+		}
+		private static void generateQuestionArgument() {
+			if(difficultyResponse == 1) {
+				num1 = rand.nextInt(10);
+				num2 = rand.nextInt(10);
+				askQuestion();
+				readResponse();			
+			}
+			else if(difficultyResponse == 2) {
+				num1 = rand.nextInt(100);
+				num2 = rand.nextInt(100);
+				askQuestion();
+				readResponse();
+			}
+			else if(difficultyResponse == 3) {
+				num1 = rand.nextInt(1000);
+				num2 = rand.nextInt(1000);
+				askQuestion();
+				readResponse();
+			}
+			else if(difficultyResponse == 4) {
+				num1 = rand.nextInt(10000);
+				num2 = rand.nextInt(10000);
+				askQuestion();
+				readResponse();
+			}else {
+				System.out.println("\nPlease try again and enter a correct choice\n\n");
+				readDifficulty();
+				generateQuestionArgument();
+			}
+	}
+		}
+
+

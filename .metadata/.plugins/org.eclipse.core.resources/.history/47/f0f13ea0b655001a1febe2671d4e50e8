@@ -1,0 +1,139 @@
+package linton_problem1;
+
+import java.security.SecureRandom;
+import java.util.Scanner;
+
+public class CAI3 {
+	static SecureRandom rand = new SecureRandom();
+	private static int switching = 1 + rand.nextInt(4);
+	public static int num1 = rand.nextInt(10);
+	public static int num2 = rand.nextInt(10);
+	private static int studentResponse;
+	public static void main(String[] args)
+	{
+		quiz();
+		//int correctAnswer;
+		//int answer;
+		
+		
+		//String correctResponse;
+	}		
+// create method to generate the arithmetic logic.
+public static void quiz()
+		{
+	
+	// initialize the secure random variable
+	//SecureRandom rand = new SecureRandom();
+	//int num1, num2;		
+
+	// Generate random numbers less than 10
+	askQuestion();
+	int correctAnswer = num1 * num2;
+	readResponse();
+	while(true) {
+		switching = 1 + rand.nextInt(4);
+		//System.out.println(switchChoice);
+		if(studentResponse != (correctAnswer)) {
+			displayIncorrectResponse();
+			askQuestion();
+			readResponse();
+			continue;
+		}
+		else if(studentResponse == correctAnswer) {
+			isAnswerCorrect();
+			break;
+		
+		}
+	}
+		}
+	// to determine the expected answer
+	/*int correctAnswer = num1 * num2;
+	int studentResponse = 0;
+	
+	 while(true)
+	 {
+	 askQuestion(num1,num2);	
+	 // read the response of the student
+	 studentResponse = readResponse();
+	 if(isAnswerCorrect(correctAnswer,studentResponse))
+	 {
+		 displayCorrectResponse(); 
+	 break;
+	 }
+	 else 
+	 {
+		displayIncorrectResponse(); 
+	 break;
+	 }
+	 }
+} */
+	
+			
+public static void readResponse()
+{
+	// create scanner to enter inputs &
+	// declare variables for this method
+	Scanner sc = new Scanner(System.in);
+	// ask the student for an answer &
+	// record input.
+	System.out.print("\nyour answer: ");
+		studentResponse = sc.nextInt();
+			
+		
+	}
+ // call a method to generate the question
+public static void askQuestion()
+{
+	 System.out.println("How much is " + num1 + " times " + num2 + "?");
+	}
+public static void isAnswerCorrect()
+{
+	if(studentResponse == num1 * num2) {
+		displayCorrectResponse();
+	}else {
+		displayIncorrectResponse();
+	}
+	//return correctAnswer == studentResponse;
+	
+}
+public static void displayCorrectResponse()
+{
+	switch(switching) {
+	case 1:
+		System.out.println("Very Good!");
+		break;
+	case 2:
+		System.out.println("Excellent!");
+		break;
+	case 3:
+		System.out.println("Nice work!");
+		break;
+	case 4:
+		System.out.println("Keep up the good work!");
+		break;
+	}
+	 
+     }
+	
+public static void displayIncorrectResponse()
+{
+	switch(switching) {
+	case 1:
+		System.out.println("No. Please try again.");
+		break;
+	case 2:
+		System.out.println("Wrong. Try once more");
+		break;
+	case 3:
+		System.out.println("Don't give up!");
+		break;
+	case 4:
+		System.out.println("No. Keep trying.");
+		break;
+	}
+	
+	}
+}
+
+
+}

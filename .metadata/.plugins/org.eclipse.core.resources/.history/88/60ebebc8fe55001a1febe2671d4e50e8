@@ -1,0 +1,9 @@
+package linton_problem1;
+import java.util.*;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.security.SecureRandom;
+
+public class CAI5 {
+
+}
